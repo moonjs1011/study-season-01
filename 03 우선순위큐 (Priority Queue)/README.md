@@ -46,3 +46,7 @@
 
 * [BOJ 1655 가운데를 말해요](https://www.acmicpc.net/problem/1655)
 
+# 활동 사진
+
+![BA389EFA-1496-4D92-B772-7DCEA44E41A9](https://github.com/user-attachments/assets/b91f0742-5698-404f-880e-9c09ae18729c)
+![2FD2838F-7F2E-452A-81F5-6022C8431EE7](https://github.com/user-attachments/assets/7d22f53a-7f92-4671-a229-bd252f8f4b93)
