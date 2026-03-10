@@ -1,0 +1,53 @@
+import java.util.*;
+
+class Solution {
+    
+    static final int maxValue = 200_000_001;
+    static List<int[]>[] edges;
+    
+    public int solution(int n, int s, int a, int b, int[][] fares) {
+        int answer = maxValue;
+        edges = new List[n+1];
+        for(int i=1; i<=n; i++) {
+            edges[i] = new ArrayList<>();
+        }
+        
+        for(int[] fare : fares) {
+            edges[fare[0]].add(new int[] {fare[1], fare[2]});
+            edges[fare[1]].add(new int[] {fare[0], fare[2]});
+        }
+        
+        int[] sDist = dijkstra(s,n);
+        int[] aDist = dijkstra(a,n);
+        int[] bDist = dijkstra(b,n);
+        
+
+        for(int mid=1; mid<=n; mid++) {
+            answer = Math.min(answer,sDist[mid] + aDist[mid] + bDist[mid]);
+        }
+        
+        return answer;
+    }
+    
+    static int[] dijkstra(int s, int V) {
+        Queue<int[]> q = new PriorityQueue<>((a,b) -> Integer.compare(a[1],b[1]));
+        boolean[] visited = new boolean[V+1];
+        int[] dist = new int[V+1]; Arrays.fill(dist, maxValue);
+        q.offer(new int[] {s,0}); //정점, s에서 정점까지 거리
+        
+        while(!q.isEmpty()) {
+            int[] cur = q.poll();
+            
+            if(visited[cur[0]]) continue; //이미 방문한 곳
+            dist[cur[0]] = cur[1]; 
+            visited[cur[0]] = true;
+            
+            for(int[] edge : edges[cur[0]]) {
+                if(!visited[edge[0]]) { 
+                    q.offer(new int[] {edge[0], cur[1] + edge[1]});
+                }
+            }
+        }
+        return dist;    
+    }
+}
