@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main_1788 {
+public class Main_1788_피보나치 {
     static final int DIV = 1_000_000_000;
 
     public static void main(String[] args) {
