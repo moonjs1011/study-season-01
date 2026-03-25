@@ -9,7 +9,7 @@ public class Main_1788 {
 		return (a%RES - b%RES) %RES;
 		
 	}
-	
+	//Space :O(1) , Time : O(N);
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int i = sc.nextInt();
